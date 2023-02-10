@@ -17,6 +17,7 @@ install_requires = [
     "asyncio>=3.4.3,<4",
     "requests>=2.25.1,<3",
     "csv>=1.0,<2",
+    "re=>2.2.1,<3",
 
 
 ]
