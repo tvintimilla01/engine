@@ -13,7 +13,12 @@ install_requires = [
     "pandas>1.0.3,<2",
     "ipykernel>=4.6.1,<7",
     "jupyter>=1,<2",
-  
+    "aiohttp>=3.7.4,<4",
+    "asyncio>=3.4.3,<4",
+    "requests>=2.25.1,<3",
+    "csv>=1.0,<2",
+
+
 ]
 
 setup(
@@ -23,3 +28,4 @@ setup(
     package_dir={"miguellib": "miguellib"},
     python_requires=">=3.6, <3.10",
     packages=find_packages(where=".", exclude=["docs", "examples", "tests"]),
+)
