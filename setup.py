@@ -26,7 +26,7 @@ setup(
     name="engine-lib",
     version=version,
     install_requires=install_requires,
-    package_dir={"miguellib": "miguellib"},
+    package_dir={"engine-lib": "engine-lib"},
     python_requires=">=3.6, <3.10",
     packages=find_packages(where=".", exclude=["docs", "examples", "tests"]),
 )
