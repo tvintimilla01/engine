@@ -1,8 +1,7 @@
 def formatter(game):
     
-    game = game.translate(str.maketrans({':': '', ' ': '-'}))
+    game = game.replace("'","").replace("-"," ").replace(",","").replace(".","").lower()
+    
+    words = game.split()
 
-    return game.lower()
-
-
-print(formatter("The Elder Scrolls V: Skyrim"))
+    return "-".join(words)
