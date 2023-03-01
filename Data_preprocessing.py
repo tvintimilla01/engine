@@ -33,9 +33,6 @@ print(df.loc[df['user_id'] == 0, 'items'].values[0][:2])
 # Get all item_ids for the first user
 game_ids = [item['item_id'] for item in df.loc[df['user_id'] == 0, 'items'].values[0]]
 
-# Show first 10 item ids
-print(game_ids[:10])
-
 # Create a new dataframe with item_ids and corresponding user_ids
 item_ids = df['items'].explode().reset_index()
 item_ids = item_ids.rename(columns={'index': 'uid', 'items': 'id'})
