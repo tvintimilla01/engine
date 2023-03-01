@@ -18,15 +18,13 @@ install_requires = [
     "requests>=2.25.1,<3",
     "csv>=1.0,<2",
     "re=>2.2.1,<3",
-
-
 ]
 
 setup(
     name="engine-lib",
     version=version,
     install_requires=install_requires,
-    package_dir={"engine-lib": "engine-lib"},
+    package_dir={"enginelib": "enginelib"},
     python_requires=">=3.6, <3.10",
     packages=find_packages(where=".", exclude=["docs", "examples", "tests"]),
 )
