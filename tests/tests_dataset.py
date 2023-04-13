@@ -5,7 +5,7 @@ from data_preprocessing import process_steam_data
 
 def test_steam_data():
     # Load the dataset (replace with actual file path)
-    steam_data = pd.read_csv('path/to/steam_data.csv')
+    steam_data = pd.read_csv('Data/all_data.csv')
 
     # Process the dataset
     processed_steam_data = process_steam_data(steam_data)
