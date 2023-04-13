@@ -21,7 +21,7 @@ A Steam API key (obtainable from Steam's API page)
 Clone the repository:
 bash
 Copy code
-git clone https://github.com/yourusername/steam-recommendation-engine.git
+git clone https://github.com/JPB22/steam-recommendation-engine.git
 Change directory to the project folder:
 bash
 Copy code
