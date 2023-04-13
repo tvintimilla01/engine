@@ -82,7 +82,7 @@ plt.show()
 
 # Countplot of sale month
 
-# define palette to highlight best months to buy house
+# define palette to highlight best months to buy
 custompalette = {release_month: "skyblue" if (release_month == 10 or release_month == 11 or release_month == 12 ) else "lightgrey" \
                  for release_month in data['release_month'].unique()}
 
