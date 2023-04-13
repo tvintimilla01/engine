@@ -19,7 +19,7 @@ jobs:
         pip install -r requirements.txt
     - name: Clean and preprocess data
       run: |
-        python Data_preprocessing.py
+        python Data_Preprocessing.py
     - name: Commit changes
       uses: EndBug/add-and-commit@v7
       with:
