@@ -1,45 +1,34 @@
 import pytest
 import pandas as pd
-from data_preprocessing import process_dataset_1, process_dataset_2
+from data_preprocessing import process_steam_data
 
-# Replace 'your_data_processing_module' with the name of your actual data processing module
 
-def test_dataset_1():
-    # Load Dataset 1 (replace with actual file path)
-    dataset_1 = pd.read_csv('path/to/dataset_1.csv')
+def test_steam_data():
+    # Load the dataset (replace with actual file path)
+    steam_data = pd.read_csv('path/to/steam_data.csv')
 
-    # Process Dataset 1
-    processed_dataset_1 = process_dataset_1(dataset_1)
-
-    # Check if the processed dataset has the required columns
-    expected_columns = [
-        'user_id', 'game_id', 'playtime', 'review_sentiment',
-        'genre', 'developer', 'publisher'
-    ]
-    for column in expected_columns:
-        assert column in processed_dataset_1.columns
-
-    # Check if the processed dataset has no null values
-    assert processed_dataset_1.isnull().sum().sum() == 0
-
-def test_dataset_2():
-    # Load Dataset 2 (replace with actual file paths)
-    steamspy_data = pd.read_csv('path/to/steamspy_data.csv')
-    steam_api_data = pd.read_csv('path/to/steam_api_data.csv')
-
-    # Process Dataset 2
-    processed_dataset_2 = process_dataset_2(steamspy_data, steam_api_data)
+    # Process the dataset
+    processed_steam_data = process_steam_data(steam_data)
 
     # Check if the processed dataset has the required columns
     expected_columns = [
-        'game_id', 'owners', 'playtime', 'user_reviews',
-        'price', 'release_date', 'genre'
+        'uid', 'id', 'owned', 'publisher', 'genres', 'app_name', 'title', 'url',
+        'release_date', 'tags', 'discount_price', 'reviews_url', 'specs',
+        'price', 'early_access', 'developer', 'sentiment', 'metascore'
     ]
     for column in expected_columns:
-        assert column in processed_dataset_2.columns
+        assert column in processed_steam_data.columns
 
-    # Check if the processed dataset has no null values
-    assert processed_dataset_2.isnull().sum().sum() == 0
+    # Check if the processed dataset has no null values in required columns
+    required_columns_no_nulls = [
+        'uid', 'id', 'owned', 'publisher', 'genres', 'app_name', 'title',
+        'release_date', 'tags', 'specs', 'price', 'early_access', 'developer',
+        'sentiment'
+    ]
+    assert processed_steam_data[required_columns_no_nulls].isnull().sum().sum() == 0
+
+    # Check if 'owned' values are either 0 or 1
+    assert set(processed_steam_data['owned'].unique()).issubset({0, 1})
 
 if __name__ == "__main__":
     pytest.main([__file__])
